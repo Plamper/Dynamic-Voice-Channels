@@ -61,7 +61,7 @@
                 Restart = "always";
                 RestartSec = "10";
 
-                ExecStart = "${self.packages.${pkgs.system}.discordBot}/bin/dynamic-channel-bot";
+                ExecStart = "${self.packages.${pkgs.system}.dynamic-channels-bot}/bin/dynamic-channel-bot";
                 
                 # Dynamic user management
                 DynamicUser = true;
