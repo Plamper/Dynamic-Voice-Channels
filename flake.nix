@@ -60,6 +60,8 @@
                 Type = "simple";
                 Restart = "always";
                 RestartSec = "10";
+
+                ExecStart = "${self.packages.${pkgs.system}.discordBot}/bin/dynamic-channel-bot";
                 
                 # Dynamic user management
                 DynamicUser = true;
@@ -75,14 +77,6 @@
                 # Load token from file
                 EnvironmentFile = cfg.tokenFile;
               };
-              
-              script = ''
-                # Create data subdirectory if needed
-                mkdir -p data
-                
-                # Run the bot
-                exec ${self.packages.${pkgs.system}.dynamic-channels-bot}/bin/dynamic-channels-bot
-              '';
             };
           };
         };
